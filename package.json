@@ -1,0 +1,15 @@
+{
+  "name": "netlify-lambda-ogp",
+  "version": "1.0.0",
+  "description": "Open Graph Protocol API for Netlify Lambda Functions",
+  "scripts": {
+    "build": "netlify-lambda build src"
+  },
+  "author": "chick-p",
+  "license": "MIT",
+  "homepage": "https://github.com/chick-p/netlify-lambda-ogp#readme",
+  "devDependencies": {
+    "netlify-lambda": "^1.4.2",
+    "ogp-parser": "^0.4.3"
+  }
+}
