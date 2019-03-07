@@ -1,2 +1,5 @@
 # README
-This repository is Open Graph Protocol API for Netlify Lambda Function.
+This repository is Netlify Lambda Function for HUGO website.
+
+## The features
+* Open Graph Protocol
