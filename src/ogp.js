@@ -17,7 +17,15 @@ exports.handler = async (event, context) => {
         body: JSON.stringify(data)
       };
     })
-    .catch(error => ({ statusCode: 422, body: String(error) }));
+    .catch(error => {
+      let body = {
+        error: String(error)
+      };
+      return {
+        statusCode: 200,
+        body: JSON.stringify(body)
+      };
+    });
 };
 
 function getOgpProperties(data, property){
