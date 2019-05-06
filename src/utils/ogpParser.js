@@ -16,19 +16,20 @@ const extractData = ($meta, propKey, contentKey) => {
 
 const getFaviconUrl = ($) => {
   const $links = $('head link');
+  let url = '';
   $links.each((index, value) => {
     const link = extractData($(value), 'rel', 'href');
     if (link && link.prop === 'icon') {
-      return link.content;
+      url = link.content;
     }
   });
-  return;
+  return url;
 };
 
 module.exports = function parse(url) {
   var options = {
     uri: url,
-    timeout: 10*1000,
+    timeout: 9*1000,
     transform: (body) => {
       return cheerio.load(body);
     }
