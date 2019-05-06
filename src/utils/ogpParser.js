@@ -40,9 +40,10 @@ module.exports = function parse(url) {
       .then($ => {
         let data = {};
         data.title = $('head title').text();
-        const favicon = getFaviconUrl($);
-        if (favicon) {
-          data.favicon = url + favicon;
+        const faviconPath = getFaviconUrl($);
+        if (faviconPath) {
+          let urlObj = new URL(faviconPath, url);
+          data.favicon = urlObj.href;
         }
 
         const $metas = $('head meta');
