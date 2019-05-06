@@ -1,37 +1,18 @@
-import ogp from 'ogp-parser';
+const ogpParser = require('./utils/ogpParser');
 
 exports.handler = async (event, context) => {
   const url = event.queryStringParameters.url;
-  return ogp(url, true)
+  return ogpParser(url)
     .then(resp => {
-      let data = {'title': resp['title']}
-      data['image'] = getOgpProperties(resp, 'image');
-      if(getOgpProperties(resp, 'title') !== ''){
-        data['title'] = getOgpProperties(resp, 'title');
-      }
-      data['site_name'] = getOgpProperties(resp, 'title');
-      data['description'] = getOgpProperties(resp, 'description');
-      data['url'] = getOgpProperties(resp, 'url');
       return {
         statusCode: 200,
-        body: JSON.stringify(data)
+        body: JSON.stringify(resp)
       };
     })
     .catch(error => {
-      let body = {
-        error: String(error)
-      };
       return {
         statusCode: 200,
-        body: JSON.stringify(body)
+        body: JSON.stringify({ error: String(error) })
       };
     });
 };
-
-function getOgpProperties(data, property){
-  let key = 'og:' + property;
-  if (!!data['ogp'][key]) {
-    return data['ogp'][key][0];
-  }
-  return '';
-}

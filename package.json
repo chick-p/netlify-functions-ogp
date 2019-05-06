@@ -9,7 +9,9 @@
   "license": "MIT",
   "homepage": "https://github.com/chick-p/netlify-lambda-ogp#readme",
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "netlify-lambda": "^1.4.2",
-    "ogp-parser": "^0.4.3"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   }
 }
