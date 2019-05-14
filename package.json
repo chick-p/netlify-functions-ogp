@@ -2,9 +2,6 @@
   "name": "netlify-lambda-ogp",
   "version": "1.0.0",
   "description": "Open Graph Protocol API for Netlify Lambda Functions",
-  "engines": {
-    "node": "10.15.3"
-  },
   "scripts": {
     "build": "netlify-lambda build src"
   },
