@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Open Graph Protocol API for Netlify Lambda Functions",
   "scripts": {
-    "build": "netlify-lambda build src"
+    "build": "netlify-lambda build src",
+    "serve": "netlify-lambda serve src"
   },
   "author": "chick-p",
   "license": "MIT",
   "homepage": "https://github.com/chick-p/netlify-lambda-ogp#readme",
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.0.0",
     "netlify-lambda": "^1.4.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"

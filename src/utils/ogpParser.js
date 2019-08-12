@@ -1,5 +1,9 @@
+require('dotenv').config();
+
 const rp = require('request-promise');
 const cheerio = require('cheerio');
+
+const timeoutSec = !isNaN(parseInt(process.env.TIMEOUT_SEC, 10)) ? parseInt(process.env.TIMEOUT_SEC, 10) : 8
 
 const extractData = ($meta, propKey, contentKey) => {
   let prop = $meta.attr(propKey);
@@ -29,7 +33,7 @@ const getFaviconUrl = ($) => {
 module.exports = function parse(url) {
   var options = {
     uri: url,
-    timeout: 9*1000,
+    timeout: timeoutSec * 1000,
     transform: (body) => {
       return cheerio.load(body);
     }
