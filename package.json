@@ -1,5 +1,5 @@
 {
-  "name": "netlify-lambda-ogp",
+  "name": "netlify-function-ogp",
   "version": "1.0.0",
   "description": "Open Graph Protocol API for Netlify Lambda Functions",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "author": "chick-p",
   "license": "MIT",
-  "homepage": "https://github.com/chick-p/netlify-lambda-ogp#readme",
+  "homepage": "https://github.com/chick-p/netlify-function-ogp#readme",
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.0.0",
