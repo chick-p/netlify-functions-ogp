@@ -15,11 +15,7 @@ To run the examples locally, here’s what you’ll need:
     TIMEOUT_SEC=SEC
     ```
 
-3. Build
-    ```
-    npm run build
-    ```
-4. Run Server
+3. Run Server
     ```
     $ npm run serve
     ```
