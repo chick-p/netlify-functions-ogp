@@ -1,18 +1,23 @@
 const ogpParser = require('./utils/ogpParser');
 
-exports.handler = async (event) => {
+const createResponse = (status, body) => {
+  return {
+    headers: {
+      'content-type': 'application/json; charset=utf-8'
+    },
+    statusCode: status,
+    body: JSON.stringify(body)
+  };
+}
+
+exports.handler = async (event, context, callback) => {
   const url = event.queryStringParameters.url;
-  return ogpParser(url).then((resp) => {
-    return {
-      statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
-      body: JSON.stringify(resp)
-    };
-  }).catch((err) => {
-    return {
-      statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({ error: String(err) })
-    };
-  });
+  try {
+    const resp = await ogpParser(url);
+    callback(null, createResponse(200, resp));
+  } catch(err) {
+    callback(null, createResponse(200, {
+      error: String(err)
+    }));
+  }
 };
